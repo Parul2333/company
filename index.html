@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login </title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-image: url(https://i.pinimg.com/564x/b5/1a/f6/b51af60378d1eb26b88925d3f604ead0.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative; /* To position the logo absolutely within the body */
+        }
+
+        .container {
+            width: 400px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .icons i {
+            font-size: 24px;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+        .icons i:hover {
+            color: #007BFF;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #e188b0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            color: #007BFF;
+            text-decoration: none;
+            text-align: right;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px; /* Adjust this value to move the logo vertically */
+            left: 20px; /* Adjust this value to move the logo horizontally */
+            width: 70px; /* Smaller width */
+            height: 70px; /* Smaller height */
+        }
+    </style>
+</head>
+<body>
+    <div class="logo"><img src="logo.png" alt="Logo" width="200px" height="200px"></div>
+    <div class="container">
+        <!-- Sign In Form -->
+        <form id="signInForm" method="get">
+            <h1>Login</h1>
+           <br><br><br>
+            <span>Login With Email & Password</span>
+            <input type="email" placeholder="Enter E-mail" required>
+            <input type="password" placeholder="Enter Password" required>
+            <select id="dashboardSelect" name="dashboard" required>
+                <option value="employee2.html">Employee Dashboard</option>
+                <option value="admin.html">Admin Dashboard</option>
+            </select>
+            
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signInForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form from submitting
+            const selectedDashboard = document.getElementById('dashboardSelect').value;
+            window.location.href = selectedDashboard; // Redirect based on selection
+        });
+    </script>
+
+</body>
+</html>
