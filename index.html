@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login </title>
+    <title>Login</title>
     <style>
         * {
             box-sizing: border-box;
@@ -20,7 +20,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            position: relative; /* To position the logo absolutely within the body */
+            position: relative;
         }
 
         .container {
@@ -36,24 +36,7 @@
             margin-bottom: 20px;
         }
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .icons i {
-            font-size: 24px;
-            color: #555;
-            transition: color 0.3s ease;
-        }
-
-        .icons i:hover {
-            color: #007BFF;
-        }
-
-        input, select {
+        input {
             width: 100%;
             padding: 12px;
             margin: 10px 0;
@@ -91,39 +74,42 @@
 
         .logo {
             position: absolute;
-            top: 20px; /* Adjust this value to move the logo vertically */
-            left: 20px; /* Adjust this value to move the logo horizontally */
-            width: 70px; /* Smaller width */
-            height: 70px; /* Smaller height */
+            top: 20px;
+            left: 20px;
+            width: 70px;
+            height: 70px;
         }
     </style>
 </head>
 <body>
-    <div class="logo"><img src="logo.png" alt="Logo" width="200px" height="200px"></div>
+    <div class="logo"><img src="logo.png" alt="Logo"></div>
     <div class="container">
         <!-- Sign In Form -->
-        <form id="signInForm" method="get">
+        <form id="signInForm">
             <h1>Login</h1>
-           <br><br><br>
-            <span>Login With Email & Password</span>
-            <input type="email" placeholder="Enter E-mail" required>
-            <input type="password" placeholder="Enter Password" required>
-            <select id="dashboardSelect" name="dashboard" required>
-                <option value="employee2.html">Employee Dashboard</option>
-                <option value="admin.html">Admin Dashboard</option>
-            </select>
-            
+            <br><br><br>
+            <span>Login With User ID & Password</span>
+            <input type="text" id="userId" placeholder="Enter User ID" required>
+            <input type="password" id="password" placeholder="Enter Password" required>
             <button type="submit">Login</button>
         </form>
     </div>
 
     <script>
         document.getElementById('signInForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent form from submitting
-            const selectedDashboard = document.getElementById('dashboardSelect').value;
-            window.location.href = selectedDashboard; // Redirect based on selection
+            event.preventDefault(); // Prevent form submission
+            
+            const userId = document.getElementById('userId').value;
+            const password = document.getElementById('password').value;
+
+            if (userId === 'employee' && password === 'employee') {
+                window.location.href = 'employee2.html'; // Redirect to employee.html
+            } else if (userId === 'admin' && password === 'admin') {
+                window.location.href = 'admin.html'; // Redirect to trainer.html
+            } else {
+                alert('Invalid User ID or Password'); // Show an alert if credentials are wrong
+            }
         });
     </script>
-
 </body>
 </html>
