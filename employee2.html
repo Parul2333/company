@@ -33,6 +33,10 @@
             color: #fff;
         }
 
+        header i:hover {
+    color: #cb808b; /* Match with the side-nav hover color */
+}
+
         .left_side h3 {
             margin: 0;
             text-transform: uppercase;
@@ -198,7 +202,7 @@
         }
 
         ul li:hover .icon {
-            color: #f1c40f;
+            color: black;
         }
 
         /* Team section */
@@ -348,6 +352,99 @@
             max-width: 800px;
             margin: 20px auto;
         }
+
+        header {
+    background: #003844;
+    color: #fff;
+}
+
+.side-nav {
+    background-color: #0A374D;
+}
+
+.side-nav a:hover {
+    background: #FF6F61;
+    color: #fff;
+}
+
+.profile-card, .team-card, .team-card2 {
+    background: #F9FBFD;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tasks-container ul li {
+    background: #EAF4F4;
+}
+
+ul li:hover {
+    background-color: #FFB396;
+    color: #fff;
+}
+
+.role-badge {
+    background-color: #009688;
+    color: #fff;
+}
+
+.icon {
+    color: #FF6F61;
+}
+
+.icon:hover {
+    color: #FFD700;
+}
+
+.team-card:hover img {
+    border-color: #009688;
+}
+.progress-chart {
+    background-color: #F9FBFD;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container {
+    margin-top: 20px;
+}
+
+.employee-progress {
+    position: relative;
+    margin: 10px 0;
+    height: 30px;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #DDE3EA; /* Background for unfilled progress */
+}
+
+.employee-progress span {
+    position: absolute;
+    left: 10px;
+    color: #fff;
+    font-weight: bold;
+    line-height: 30px; /* Center text vertically */
+}
+
+.employee-progress:nth-child(1) {
+    background: linear-gradient(to right, #FF6F61, #FFB396);
+}
+
+.employee-progress:nth-child(2) {
+    background: linear-gradient(to right, #009688, #5DDBD1);
+}
+
+.employee-progress:nth-child(3) {
+    background: linear-gradient(to right, #FF6F61, #FFB396);
+}
+
+.employee-progress:nth-child(4) {
+    background: linear-gradient(to right, #009688, #5DDBD1);
+}
+
+.employee-progress:nth-child(5) {
+    background: linear-gradient(to right, #FF6F61, #FFB396);
+}
+
     </style>
 </head>
 
@@ -358,7 +455,7 @@
             <i class="fas fa-bars"></i>
         </label>
         <div class="left_side">
-            <h3>Welcome Employee!</h3>
+            <h3>&nbsp Employee Dashboard</h3> 
         </div>
     </header>
 
@@ -379,7 +476,7 @@
             <div class="profile-card">
                 <div class="profile-image">
                     <i class="fas fa-user-tie"></i>
-                    <h2>Aum Sharma</h2>
+                    <h2>Arun Sharma</h2>
                     <p>Software Developer</p>
                 </div>
                 <div class="profile-info">
@@ -388,7 +485,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <p>Email:</p>
-                            <p class="text-muted">aumsharma1234@gmail.com</p>
+                            <p class="text-muted">arunsharma1234@gmail.com</p>
                         </div>
                         <div class="col-sm-6">
                             <p>Employee ID:</p>
@@ -417,9 +514,16 @@
             </div>
         </section>
         <section id="graph">
-            <div class="chart-container">
-                <canvas id="progressChart"></canvas>
+            <div class="progress-chart">
+                <h2>Employee Progress Chart</h2>
+                <div class="chart-container">
+                    <div class="employee-progress" style="width: 80%;"><span>Alice Smith: 80%</span></div>
+                    <div class="employee-progress" style="width: 65%;"><span>Bob Johnson: 65%</span></div>
+                    <div class="employee-progress" style="width: 50%;"><span>Carol White: 50%</span></div>
+                    
+                </div>
             </div>
+            
         </section>
         <section id="tasks" class="tasks-container">
             <div class="p-3">Monthly Tasks</div>
@@ -441,11 +545,11 @@
             </ul>
         </section>
 
-        <section id="graph">
+        <!-- <section id="graph">
     <div class="chart-container">
         <canvas id="progressChart"></canvas>
     </div>
-</section>
+</section> -->
 
         <section id="team">
             <h2>Meet the Team</h2>
@@ -459,13 +563,13 @@
                 <!-- More team cards -->
 
                 <div class="team-card">
-                    <img src="https://cdn.pixabay.com/photo/2014/03/25/16/54/user-297566_640.png" alt="Bob Johnson">
+                    <img src="https://cdn.pixabay.com/photo/2012/04/13/21/07/user-33638_640.png" alt="Bob Johnson">
                     <span class="role-badge">Developer</span>
                     <p><strong>Name:</strong> Bob Johnson</p>
                     <p class="description">Bob is a skilled developer specializing in front-end technologies and problem-solving.</p>
                 </div>
                 <div class="team-card">
-                    <img src="https://cdn.pixabay.com/photo/2012/04/13/21/07/user-33638_640.png" alt="Carol White">
+                    <img src="https://cdn.pixabay.com/photo/2014/03/25/16/54/user-297566_640.png" alt="Carol White">
                     <span class="role-badge">QA Engineer</span>
                     <p><strong>Name:</strong> Carol White</p>
                     <p class="description">Carol ensures the highest quality standards in all projects through rigorous testing.</p>
@@ -500,13 +604,7 @@
            
             </section>
         </div>
-    
-   
-    
-    
-    
-   
-    
+        
         </section>
     </div>
     <script>
@@ -555,10 +653,15 @@
 </body>
 
 <script>
-function logout() {
-    // Any additional logout functionality you need (e.g., clearing session, showing confirmation, etc.)
-    window.location.href = 'index.html'; // Redirect to index.html
-}
+    function logout() {
+        // Clear local storage or session storage
+        localStorage.clear();
+        sessionStorage.clear();
+
+        // Redirect to login page
+        window.location.href = "index.html";  // Replace with your login page URL
+    }
 </script>
+
 </body>
 </html>
