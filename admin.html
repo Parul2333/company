@@ -4,33 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | ActiveJeevan</title>
+    <title>Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXhW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-    <!-- Chart.js Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-        }
-
+        /* General body styles */
         body {
-            background-color: #e0f7fa; /* Lighter background for better readability */
-            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            margin-top: 100px;
+            padding: 0;
+            background-color: #f4f4f9;
         }
 
+        header {
+            background-color: #162a40;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: left;
+        }
+
+        header .menu-bar {
+            font-size: 24px;
+            cursor: pointer;
+            display: inline-block;
+            color: #fff;
+        }
+
+        /* Sidebar styles */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: #004d40; /* Darker shade for the header */
+            /* background: #162a40; */
+            background: black;
             padding: 20px;
             height: 70px;
             z-index: 1000;
@@ -40,7 +50,8 @@
         }
 
         header i:hover {
-            color: #ffc107; /* Gold color for hover effect */
+            color: #cb808b;
+            /* Match with the side-nav hover color */
         }
 
         .left_side h3 {
@@ -50,9 +61,9 @@
             font-weight: 900;
         }
 
-        /* Sidebar */
         .side-nav {
-            background-color: #00695c; /* Sidebar darker shade */
+            /* background-color: #1a364e; */
+            background-color: black;
             padding-top: 30px;
             position: fixed;
             left: 0;
@@ -86,7 +97,7 @@
         }
 
         .side-nav a:hover {
-            background: #ffc107; /* Gold color for hover effect */
+            background: #cb808b;
             color: black;
         }
 
@@ -96,6 +107,7 @@
 
         #check {
             display: none;
+
         }
 
         #check:checked~.side-nav {
@@ -106,71 +118,177 @@
             margin-left: 0;
         }
 
+
+        /* Main content styles */
         .content {
             margin-left: 270px;
-            padding: 70px 20px;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        .dashboard {
             padding: 20px;
-            background-color: #ffffff; /* White background for cards */
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        h1,
-        h2 {
-            margin-bottom: 20px;
-            color: #004d40; /* Darker text color for headings */
         }
 
         .section-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #1a364e;
+            text-align: center;
+        }
+
+        /* Admin and Team Info section */
+        .trainer-info {
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
 
-        .trainer-info,
         .team-progress {
             display: flex;
             justify-content: space-between;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
 
-        .trainer-info div,
-        .team-progress div,
-        .task-assignment,
-        .attendance {
-            width: 48%;
-            padding: 15px;
-            background-color: #f1f8e9; /* Light green background for info boxes */
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+        .team-progress div {
+            width: 45%;
         }
 
-        input,
-        select,
-        textarea,
-        button {
+        /* Assign Tasks and Attendance Forms */
+        form,
+        .attendance {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        form label,
+        .attendance label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        form textarea,
+        form select,
+        form button,
+        .attendance input,
+        .attendance select,
+        .attendance button {
             width: 100%;
             padding: 10px;
-            margin: 10px 0;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            border: 1px solid #00796b; /* Teal border */
+            font-size: 16px;
         }
 
-        button {
-            background-color: #00796b; /* Teal button color */
+        form button,
+        .attendance button {
+            background-color: #162a40;
             color: white;
             border: none;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: background-color 0.3s ease;
         }
 
-        button:hover {
-            background-color: #004d40; /* Darker teal on hover */
+        form button:hover,
+        .attendance button:hover {
+            background-color: #cb808b;
+        }
+
+        /* Task list and attendance records */
+        #taskList,
+        #attendanceRecords {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #taskList p,
+        #attendanceRecords p {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        #taskList p button,
+        #attendanceRecords p button {
+            background-color: #cb808b;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #taskList p button:hover,
+        #attendanceRecords p button:hover {
+            background-color: #162a40;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content {
+                margin-left: 0;
+            }
+
+            .side-nav {
+                width: 100%;
+                height: auto;
+                position: static;
+            }
+
+            .team-progress {
+                flex-direction: column;
+            }
+
+            .team-progress div {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        .side-nav .logo {
+            text-align: center;
+            margin-bottom: 20px;
+            /* Spacing around the logo */
+        }
+
+        .side-nav .logo img {
+            width: 150px;
+            /* Increase the size for better visibility */
+            height: auto;
+            /* Maintain aspect ratio */
+            border-radius: 50%;
+            /* Optional: Make it circular */
+            padding: 15px;
+            /* Add padding for space around the image */
+            /* background-color: #fff; */
+            /* Background color for contrast */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* Optional: Shadow for subtle effect */
+        }
+
+
+        @media (max-width: 768px) {
+            .side-nav .logo img {
+                width: 100px;
+                /* Smaller size for smaller screens */
+            }
         }
     </style>
 </head>
@@ -184,13 +302,17 @@
             <i class="fas fa-bars"></i>
         </label>
         <div class="left_side">
-            <h3> &nbsp Admin Dashboard</h3>
+            <h3>&nbsp Admin Dashboard</h3>
         </div>
     </header>
 
     <!-- Sidebar -->
     <div class="side-nav">
-        <img src="logo.png" width="150px" height="150px">
+        <!-- <img src="logo.png" width="150px" height="150px"> -->
+        <div class="logo">
+            <img src="NEXERA.png" alt="ActiveJeevan Logo" class="image">
+        </div>
+
         <a href="#trainer-info"><i class="fa fa-user"></i> Admin Info</a>
         <a href="#teams"><i class="fa fa-users"></i> Teams</a>
         <a href="#tasks"><i class="fa fa-tasks"></i> Assign Tasks</a>
@@ -205,7 +327,7 @@
             <div class="trainer-info">
                 <div>
                     <h3>Admin Name:</h3>
-                    <p>John Doe</p>
+                    <p>Varun Sharma</p>
                 </div>
                 <div>
                     <h3>Admin ID:</h3>
@@ -215,7 +337,7 @@
         </section>
 
         <section id="teams" class="dashboard">
-            <h2 class="section-title">Teams Working Under Trainer</h2>
+            <h2 class="section-title">Teams Working Under Admin</h2>
             <div class="team-progress">
                 <div>
                     <h3>Team Alpha</h3>
@@ -229,11 +351,8 @@
                 </div>
             </div>
 
-            <!-- Add the Chart canvas here -->
-            <div class="dashboard">
-                <h3>Team Progress Overview</h3>
-                <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-            </div>
+            <h3>Team Progress Overview</h3>
+            <canvas id="teamProgressChart" style="width:100%;max-width:600px"></canvas>
 
             <div class="team-progress">
                 <div>
@@ -249,9 +368,51 @@
             </div>
         </section>
 
+        <script>
+            // Pie chart data
+            const teamProgressData = {
+                labels: ['Team Alpha', 'Team Beta', 'Team Gamma', 'Team Delta'],
+                datasets: [{
+                    label: 'Team Progress',
+                    data: [75, 50, 90, 65], // Progress percentages for each team
+                    backgroundColor: [
+                        '#cb808b', // Color for Team Alpha
+                        '#1a364e', // Color for Team Beta
+                        '#162a40', // Color for Team Gamma
+                        '#f4f4f9'  // Color for Team Delta
+                    ],
+                    hoverOffset: 4
+                }]
+            };
+
+            // Configuring the chart
+            const config = {
+                type: 'pie',
+                data: teamProgressData,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top', // Place the legend on top
+                        },
+                        tooltip: {
+                            enabled: true, // Show tooltips on hover
+                        }
+                    }
+                }
+            };
+
+            // Rendering the pie chart
+            const teamProgressChart = new Chart(
+                document.getElementById('teamProgressChart'),
+                config
+            );
+        </script>
+
+
         <section id="tasks" class="dashboard">
             <h2 class="section-title">Assign Task to Teams</h2>
-            <form action="" method="post">
+            <form id="taskForm">
                 <label for="teamSelect">Select Team:</label>
                 <select id="teamSelect" name="team" required>
                     <option value="alpha">Team Alpha</option>
@@ -261,79 +422,96 @@
                 </select>
 
                 <label for="taskDetails">Task Details:</label>
-                <textarea id="taskDetails" name="taskDetails" rows="5" placeholder="Enter task details here" required></textarea>
+                <textarea id="taskDetails" rows="4" required></textarea>
 
                 <button type="submit">Assign Task</button>
             </form>
+
+            <div id="taskList"></div>
         </section>
 
         <section id="attendance" class="dashboard">
-            <h2 class="section-title">Attendance</h2>
-            <div class="attendance">
-                <label for="date">Select Date:</label>
-                <input type="date" id="date" name="date">
+            <h2 class="section-title">Mark Attendance</h2>
+            <form id="attendanceForm">
+                <label for="attendanceDate">Date:</label>
+                <input type="date" id="attendanceDate" required>
 
-                <label for="status">Select Status:</label>
-                <select id="status" name="status" required>
+                <label for="attendanceStatus">Status:</label>
+                <select id="attendanceStatus" name="status" required>
                     <option value="present">Present</option>
                     <option value="absent">Absent</option>
                 </select>
-                <button type="button" onclick="markAttendance()">Mark Attendance</button>
-            </div>
+
+                <button type="submit">Mark Attendance</button>
+            </form>
+
+            <div id="attendanceRecords"></div>
         </section>
     </div>
 
+    <!-- Scripts -->
     <script>
-        // Chart.js code
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Team Alpha', 'Team Beta', 'Team Gamma', 'Team Delta'],
-                datasets: [{
-                    label: 'Progress (%)',
-                    data: [75, 50, 90, 65],
-                    backgroundColor: [
-                        'rgba(76, 175, 80, 0.6)',
-                        'rgba(255, 193, 7, 0.6)',
-                        'rgba(33, 150, 243, 0.6)',
-                        'rgba(244, 67, 54, 0.6)'
-                    ],
-                    borderColor: [
-                        'rgba(76, 175, 80, 1)',
-                        'rgba(255, 193, 7, 1)',
-                        'rgba(33, 150, 243, 1)',
-                        'rgba(244, 67, 54, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
+        document.getElementById('taskForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const team = document.getElementById('teamSelect').value;
+            const details = document.getElementById('taskDetails').value;
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            tasks.push({ team, details });
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            displayTasks();
         });
 
+        document.getElementById('attendanceForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const date = document.getElementById('attendanceDate').value;
+            const status = document.getElementById('attendanceStatus').value;
+            const attendance = JSON.parse(localStorage.getItem('attendance')) || [];
+            attendance.push({ date, status });
+            localStorage.setItem('attendance', JSON.stringify(attendance));
+            displayAttendance();
+        });
 
-        function markAttendance() {
-            // Logic for marking attendance
-            alert("Attendance marked successfully!");
+        function displayTasks() {
+            const taskList = document.getElementById('taskList');
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            taskList.innerHTML = tasks.map((task, index) =>
+                `<p>${task.team} - ${task.details} 
+                    <button onclick="deleteTask(${index})">Delete</button></p>`
+            ).join('');
         }
 
+        function deleteTask(index) {
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            tasks.splice(index, 1);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            displayTasks();
+        }
+
+        function displayAttendance() {
+            const attendanceRecords = document.getElementById('attendanceRecords');
+            const attendance = JSON.parse(localStorage.getItem('attendance')) || [];
+            attendanceRecords.innerHTML = attendance.map((record, index) =>
+                `<p>${record.date} - ${record.status} 
+                    <button onclick="deleteAttendance(${index})">Delete</button></p>`
+            ).join('');
+        }
+
+        function deleteAttendance(index) {
+            const attendance = JSON.parse(localStorage.getItem('attendance')) || [];
+            attendance.splice(index, 1);
+            localStorage.setItem('attendance', JSON.stringify(attendance));
+            displayAttendance();
+        }
+
+        // Initial data load
+        displayTasks();
+        displayAttendance();
+
+        // Logout function
         function logout() {
-        // Clear local storage or session storage
-        localStorage.clear();
-        sessionStorage.clear();
-
-        // Redirect to login page
-        window.location.href = "index.html";  // Replace with your login page URL
-    }
-        
+            window.location.href = 'logout.html';
+        }
     </script>
-
 </body>
 
 </html>
