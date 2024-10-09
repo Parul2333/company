@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXhW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
 
     <style>
         html, body {
@@ -34,7 +34,7 @@
         }
 
         header i:hover {
-    color: #cb808b; /* Match with the side-nav hover color */
+    color: #cb808b; 
 }
 
         .left_side h3 {
@@ -103,7 +103,7 @@
         .content {
             margin-left: 270px;
             padding: 20px;
-            height: calc(100vh - 70px); /* Adjusted to ensure full height excluding header */
+            height: calc(100vh - 70px); 
             box-sizing: border-box;
             overflow: auto;
             transition: margin-left 0.3s;
@@ -115,7 +115,7 @@
             border: none;
         }
 
-        /* Profile section */
+        
         .profile-card {
             max-width: 800px;
             display: flex;
@@ -158,7 +158,7 @@
             margin: 0 10px;
         }
 
-        /* Tasks section */
+       
         .tasks-container {
             margin-top: 20px;
         }
@@ -205,7 +205,7 @@
             color: black;
         }
 
-        /* Team section */
+        
         .team-container {
             padding: 20px;
             display: flex;
@@ -414,7 +414,7 @@ ul li:hover {
     height: 30px;
     border-radius: 5px;
     overflow: hidden;
-    background: #DDE3EA; /* Background for unfilled progress */
+    background: #DDE3EA; 
 }
 
 .employee-progress span {
@@ -422,7 +422,7 @@ ul li:hover {
     left: 10px;
     color: #fff;
     font-weight: bold;
-    line-height: 30px; /* Center text vertically */
+    line-height: 30px; 
 }
 
 .employee-progress:nth-child(1) {
@@ -545,11 +545,7 @@ ul li:hover {
             </ul>
         </section>
 
-        <!-- <section id="graph">
-    <div class="chart-container">
-        <canvas id="progressChart"></canvas>
-    </div>
-</section> -->
+        
 
         <section id="team">
             <h2>Meet the Team</h2>
@@ -560,7 +556,7 @@ ul li:hover {
                 <p><strong>Name:</strong> Alice Smith</p>
                 <p class="description">Alice is a passionate designer with a keen eye for aesthetics and user experience.</p>
                 </div>
-                <!-- More team cards -->
+               
 
                 <div class="team-card">
                     <img src="https://cdn.pixabay.com/photo/2012/04/13/21/07/user-33638_640.png" alt="Bob Johnson">
@@ -608,19 +604,19 @@ ul li:hover {
         </section>
     </div>
     <script>
-        // Chart.js graph initialization
+        
         const ctx = document.getElementById('progressChart').getContext('2d');
         const progressChart = new Chart(ctx, {
-            type: 'line', // Type of chart
+            type: 'line', 
             data: {
-                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'], // X-axis labels
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'], 
                 datasets: [{
-                    label: 'Progress', // Graph title
-                    data: [10, 40, 50, 80], // Example data points
+                    label: 'Progress', 
+                    data: [10, 40, 50, 80], 
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 2,
-                    fill: false, // No filling under the line
-                    tension: 0.1 // Line tension for smooth curve
+                    fill: false, 
+                    tension: 0.1 
                 }]
             },
             options: {
@@ -654,12 +650,9 @@ ul li:hover {
 
 <script>
     function logout() {
-        // Clear local storage or session storage
         localStorage.clear();
         sessionStorage.clear();
-
-        // Redirect to login page
-        window.location.href = "index.html";  // Replace with your login page URL
+        window.location.href = "index.html"; 
     }
 </script>
 
