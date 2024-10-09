@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
     <style>
-        /* General body styles */
+        
         body {
             font-family: Arial, sans-serif;
             margin-top: 100px;
@@ -33,7 +33,7 @@
             color: #fff;
         }
 
-        /* Sidebar styles */
+        
         header {
             position: fixed;
             top: 0;
@@ -51,7 +51,7 @@
 
         header i:hover {
             color: #cb808b;
-            /* Match with the side-nav hover color */
+            
         }
 
         .left_side h3 {
@@ -119,7 +119,7 @@
         }
 
 
-        /* Main content styles */
+        
         .content {
             margin-left: 270px;
             padding: 20px;
@@ -132,7 +132,7 @@
             text-align: center;
         }
 
-        /* Admin and Team Info section */
+       
         .trainer-info {
             display: flex;
             justify-content: space-between;
@@ -157,7 +157,7 @@
             width: 45%;
         }
 
-        /* Assign Tasks and Attendance Forms */
+        
         form,
         .attendance {
             background-color: #fff;
@@ -204,7 +204,7 @@
             background-color: #cb808b;
         }
 
-        /* Task list and attendance records */
+        
         #taskList,
         #attendanceRecords {
             background-color: #fff;
@@ -240,7 +240,7 @@
             background-color: #162a40;
         }
 
-        /* Responsive Design */
+       
         @media (max-width: 768px) {
             .content {
                 margin-left: 0;
@@ -265,29 +265,27 @@
         .side-nav .logo {
             text-align: center;
             margin-bottom: 20px;
-            /* Spacing around the logo */
+            
         }
 
         .side-nav .logo img {
             width: 150px;
-            /* Increase the size for better visibility */
+            
             height: auto;
-            /* Maintain aspect ratio */
+            
             border-radius: 50%;
-            /* Optional: Make it circular */
+            
             padding: 15px;
-            /* Add padding for space around the image */
-            /* background-color: #fff; */
-            /* Background color for contrast */
+            
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            /* Optional: Shadow for subtle effect */
+            
         }
 
 
         @media (max-width: 768px) {
             .side-nav .logo img {
                 width: 100px;
-                /* Smaller size for smaller screens */
+                
             }
         }
     </style>
@@ -295,7 +293,7 @@
 
 <body>
 
-    <!-- Header -->
+    
     <input type="checkbox" id="check">
     <header>
         <label for="check" class="menu-bar">
@@ -306,9 +304,9 @@
         </div>
     </header>
 
-    <!-- Sidebar -->
+    
     <div class="side-nav">
-        <!-- <img src="logo.png" width="150px" height="150px"> -->
+        
         <div class="logo">
             <img src="NEXERA.png" alt="ActiveJeevan Logo" class="image">
         </div>
@@ -341,12 +339,12 @@
             <div class="team-progress">
                 <div>
                     <h3>Team Alpha</h3>
-                    <p>Team Leader: Alice</p>
+                    <p>Team Leader: Arun Sharma</p>
                     <p>Progress: 75%</p>
                 </div>
                 <div>
                     <h3>Team Beta</h3>
-                    <p>Team Leader: Bob</p>
+                    <p>Team Leader: Radhika Singh</p>
                     <p>Progress: 50%</p>
                 </div>
             </div>
@@ -357,35 +355,35 @@
             <div class="team-progress">
                 <div>
                     <h3>Team Gamma</h3>
-                    <p>Team Leader: Charlie</p>
+                    <p>Team Leader: Rohan Sharma</p>
                     <p>Progress: 90%</p>
                 </div>
                 <div>
                     <h3>Team Delta</h3>
-                    <p>Team Leader: David</p>
+                    <p>Team Leader: Vikram Patel</p>
                     <p>Progress: 65%</p>
                 </div>
             </div>
         </section>
 
         <script>
-            // Pie chart data
+            
             const teamProgressData = {
                 labels: ['Team Alpha', 'Team Beta', 'Team Gamma', 'Team Delta'],
                 datasets: [{
                     label: 'Team Progress',
-                    data: [75, 50, 90, 65], // Progress percentages for each team
+                    data: [75, 50, 90, 65], 
                     backgroundColor: [
-                        '#cb808b', // Color for Team Alpha
-                        '#1a364e', // Color for Team Beta
-                        '#162a40', // Color for Team Gamma
-                        '#f4f4f9'  // Color for Team Delta
+                        '#cb808b', 
+                        '#1a364e', 
+                        '#162a40', 
+                        '#f4f4f9'  
                     ],
                     hoverOffset: 4
                 }]
             };
 
-            // Configuring the chart
+            
             const config = {
                 type: 'pie',
                 data: teamProgressData,
@@ -393,16 +391,16 @@
                     responsive: true,
                     plugins: {
                         legend: {
-                            position: 'top', // Place the legend on top
+                            position: 'top', 
                         },
                         tooltip: {
-                            enabled: true, // Show tooltips on hover
+                            enabled: true, 
                         }
                     }
                 }
             };
 
-            // Rendering the pie chart
+            
             const teamProgressChart = new Chart(
                 document.getElementById('teamProgressChart'),
                 config
@@ -449,7 +447,7 @@
         </section>
     </div>
 
-    <!-- Scripts -->
+  
     <script>
         document.getElementById('taskForm').addEventListener('submit', function (e) {
             e.preventDefault();
@@ -503,11 +501,10 @@
             displayAttendance();
         }
 
-        // Initial data load
+        
         displayTasks();
         displayAttendance();
 
-        // Logout function
         function logout() {
             window.location.href = 'index.html';
         }
